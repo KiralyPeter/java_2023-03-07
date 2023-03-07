@@ -12,8 +12,8 @@ public class Worker {
         Statement stmt = null;
         ResultSet rs = null;
 
-        String sqlInsert = "INSERT INTO workers (name, city, salary, born) VALUES ('Király Péter', 'Szigetszentmiklós', 550000, '1974-06-11');";
-        String sql = "SELECT * FROM workers;";
+        String sql = "INSERT INTO workers (name, city, salary, born) VALUES" + "('Király Péter', 'Szigetszentmiklós', 550000, '1974-06-11');";
+        // String sql = "SELECT * FROM workers;";
         Connect connect = new Connect();
         Connection conn = connect.connectDatabase();
 
