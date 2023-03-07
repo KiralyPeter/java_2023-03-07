@@ -13,7 +13,10 @@ connection string // ezt nekünk kell létrehozni
 */
 public class DatabaseConnect {
     public static void main(String[] args) throws Exception {
-        Connect connect = new Connect();
-        connect.connectDatabase();
+        // Connect connect = new Connect(); // Worker osztályból hívjuk
+        // connect.connectDatabase();       // Worker osztályból hívjuk
+
+        Worker worker = new Worker();
+        worker.getWorkers();
     }
 }
