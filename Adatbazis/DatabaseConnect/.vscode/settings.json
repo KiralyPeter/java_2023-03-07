@@ -1,0 +1,8 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/home/szf-esti/Programozas/Java/2023-03-07/Adatbazis/mariadb-java-client-2.7.6.jar"
+    ]
+}
