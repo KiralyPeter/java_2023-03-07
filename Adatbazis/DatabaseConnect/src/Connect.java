@@ -16,14 +16,16 @@ public class Connect {
     // Tárolni kell a kapcsolatot (ez most kivételesen osztályváltozóban, de majd megírjuk rendesen..)
     // private Connection conn;
 
+    private Connection conn = null;
+
     // Konstruktor
     Connect(){
-        // conn = null;
+        conn = null;
     }
 
     // majd ezt is átalakítjuk hordozhatóvá - connection String
     public Connection connectDatabase(){
-        Connection conn = null;
+        
         try {
             //driver
             Class.forName("org.mariadb.jdbc.Driver");
@@ -38,17 +40,36 @@ public class Connect {
         } catch (ClassNotFoundException ex){
             System.out.println("Nincs meg a driver.");
         }
+        
+        return conn;
 
-        if(conn != null){
-            System.out.println("Sikeres kapcsolódás!");
-            return conn;
+
+
+        // ezt máshol kell..
+
+        // if(conn != null){
+        //     System.out.println("Sikeres kapcsolódás!");
+        //     return conn;
             
             
-        }else{
-            System.out.println("Nincs kapcsolat.");
-            return null;
+        // }else{
+        //     System.out.println("Nincs kapcsolat.");
+        //     return null;
+            
+        // }
+    }
+
+    public void closeConnect(){
+
+        if( conn != null){
+            try {
+                conn.close();    
+            } catch (SQLException ex) {
+                System.out.println("Hiba a lezárás során");
+            }
             
         }
+
     }
 
 }
