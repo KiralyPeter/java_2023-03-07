@@ -10,6 +10,11 @@ connection string // ezt nekünk kell létrehozni
     - user
     - password
 
+Szükséges osztályok:
+    Connetcion
+    SQLException
+    ClassNotFoundException
+
 */
 public class DatabaseConnect {
     public static void main(String[] args) throws Exception {
