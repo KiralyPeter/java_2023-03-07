@@ -14,34 +14,40 @@ import java.lang.ClassNotFoundException;
 
 public class Connect {
     // Tárolni kell a kapcsolatot (ez most kivételesen osztályváltozóban, de majd megírjuk rendesen..)
-    private Connection conn;
+    // private Connection conn;
 
     // Konstruktor
     Connect(){
-        conn = null;
+        // conn = null;
     }
 
     // majd ezt is átalakítjuk hordozhatóvá - connection String
-    public void connectDatabase(){
+    public Connection connectDatabase(){
+        Connection conn = null;
         try {
             //driver
-            Class.forName("org.mariadb.jdbc.driver");
+            Class.forName("org.mariadb.jdbc.Driver");
             // meg kell szólítani
-            String url = "jdbc:mariadb//localhost:3306/szfesti_elso";
+            String url = "jdbc:mariadb://localhost:3306/szfesti_elso";
             // Kapcsolat felépítése
             conn = DriverManager.getConnection(url, "szfesti", "titok");
         } catch (SQLException ex) {
             // felépül a kapcsolat? Ha nem...
             System.out.println("Hiba a kapcsolódás során.");
+            System.out.println(ex.getMessage());
         } catch (ClassNotFoundException ex){
             System.out.println("Nincs meg a driver.");
         }
 
         if(conn != null){
             System.out.println("Sikeres kapcsolódás!");
+            return conn;
+            
             
         }else{
             System.out.println("Nincs kapcsolat.");
+            return null;
+            
         }
     }
 
